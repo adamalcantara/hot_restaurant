@@ -61,7 +61,7 @@
                 <label for="reserve-unique-id">Unique ID</label>
                 <input type="text" class="form-control" id="reserve-unique-id">
               </div>
-              <button type="submit" class="btn btn-primary submit">Submit</button>
+              <button id="submitBtn" type="submit" class="btn btn-primary submit">Submit</button>
             </form>
           </div>
         </div>
@@ -78,6 +78,33 @@
     </footer>
 
   </div>
+  <script text="text/javascript">
+
+        $("#submitBtn").on("click", function (event) {
+            event.preventDefault();
+            var newReserve = {
+                name: $("#name").value().trim(),
+                phoneNum: $("#phoneNum").value().trim(),
+                email: $("#email").value().trim(),
+                uniqueId: $("#uniqueId").value().trim()
+            }
+
+            //console.log(newReserve);
+
+            $.post("api/tables", newReserve).then(function (data) {
+                if (data === "tables") { alert("Reservation added!"); }
+                else {
+                    alert("You're on the waitlist!");
+                }
+            });
+
+            $("#name").value("");
+            $("#phoneNum").value("");
+            $("#email").value("");
+            $("#uniqueId").value("");
+
+        })
+    </script>
 
 </body>
 
