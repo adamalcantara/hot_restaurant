@@ -32,3 +32,7 @@ app.get('/add', (req, res) => {
 app.post('/api/add', (req, res)=> {
 
 });
+
+app.listen(PORT, () => {
+    console.log(`App listening on PORT: ${PORT}`);
+  });

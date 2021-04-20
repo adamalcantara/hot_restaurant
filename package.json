@@ -1,0 +1,26 @@
+{
+  "name": "hot_restaurant",
+  "version": "1.0.0",
+  "description": "A service to book a restaurant reservation",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamalcantara/hot_restaurant.git"
+  },
+  "keywords": [
+    "Restaurant"
+  ],
+  "author": "Trent, Adam, Kevin, David",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamalcantara/hot_restaurant/issues"
+  },
+  "homepage": "https://github.com/adamalcantara/hot_restaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
