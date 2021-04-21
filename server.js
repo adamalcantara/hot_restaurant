@@ -16,8 +16,8 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html')));
 
 
-app.get('/add', (req, res) => {
-    res.sendFile(path.join(__dirname, 'add.html'));
+app.get('/reserve', (req, res) => {
+    res.sendFile(path.join(__dirname, 'reserve.html'));
 
     const chosen = req.params.tables;
     console.log(chosen)
@@ -29,25 +29,26 @@ app.get('/add', (req, res) => {
     });
     
     app.get("/api/tables", function (req,res) {
-        return res.json(reservation);
+        return res.json(tables);
     });
     
     app.get("/api/waitlist", function (req,res) {
-        return res.json(waitingList);
+        return res.json(resv);
     });
     
 });
 
-app.post('/api/add', (req, res)=> {
+app.post('/api/tables', (req, res)=> {
 
     var newReserv = req.body;
-    newReserv.routeName = newReserv.name.replace(/ /g, "").toLowerCase();
+    console.log(req.body);
+    newReserv.routeName = newReserv.customerName.replace(/ /g, "").toLowerCase();
     //console.log(newReserv);
     var isItFull = false;
-    if(reservation.length <= 5) {
-        reservation.push(newReserv);
+    if(tables.length < 5) {
+        tables.push(newReserv);
     } else {
-        waitingList.push(newReserv);
+        resv.push(newReserv);
         isItFull = true;
     }
 
@@ -57,8 +58,8 @@ app.post('/api/add', (req, res)=> {
 
 app.delete("/api/clear", function(req,res) {
         
-    reservation = [];
-    waitingList = [];
+    tables = [];
+    resv = [];
 })
 
 app.listen(PORT, () => {
