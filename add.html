@@ -78,43 +78,7 @@
     </footer>
 
   </div>
-<<<<<<< HEAD
-  <script text="text/javascript">
-
-        $("#submitBtn").on("click", function (event) {
-            event.preventDefault();
-            var newReserve = {
-                name: $("#name").val().trim(),
-                phoneNum: $("#phoneNum").val().trim(),
-                email: $("#email").val().trim(),
-                uniqueId: $("#uniqueId").val().trim()
-            }
-
-            //console.log(newReserve);
-
-            $.post("api/reservation", newReserve)
-            .then(function (data) {
-                if (data === "tables") { alert("Reservation added!"); }
-                else {
-                    alert("You're on the waitlist!");
-                }
-            });
-
-            $("#name").value("");
-            $("#phoneNum").value("");
-            $("#email").value("");
-            $("#uniqueId").value("");
-
-        })
-    </script>
-=======
->>>>>>> 03c7b3b7756f64887ddb116d9e563408ffe2bc05
-
-</body>
-
-</html>
-
-<script type="text/javascript">
+  <script type="text/javascript">
     // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
     // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
@@ -162,3 +126,8 @@
     });
   
   </script>
+
+</body>
+
+</html>
+
