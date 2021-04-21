@@ -7,9 +7,9 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const tables = []
+const tables = [];
 
-const resv = []
+const resvList = [];
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
@@ -24,6 +24,7 @@ app.get('/reserve', (req, res) => {
 
     for (let i = 0; i < tables.length == 5; i++) { 
     }
+
     app.get("/tables", function (req,res) {
         res.sendFile(path.join(__dirname, "tables.html"))
     });
