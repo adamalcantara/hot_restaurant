@@ -7,9 +7,9 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const tables = []
+const tables = [];
 
-const resv = []
+const resvList = [];
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
@@ -24,6 +24,7 @@ app.get('/add', (req, res) => {
 
     for (let i = 0; i < tables.length == 5; i++) { 
     }
+
     app.get("/tables", function (req,res) {
         res.sendFile(path.join(__dirname, "tables.html"))
     });
@@ -32,8 +33,8 @@ app.get('/add', (req, res) => {
         return res.json(reservation);
     });
     
-    app.get("/api/waitlist", function (req,res) {
-        return res.json(waitingList);
+    app.get("/api/List", function (req,res) {
+        return res.json(revList);
     });
     
 });
@@ -47,7 +48,7 @@ app.post('/api/add', (req, res)=> {
     if(reservation.length <= 5) {
         reservation.push(newReserv);
     } else {
-        waitingList.push(newReserv);
+        resvList.push(newReserv);
         isItFull = true;
     }
 
@@ -58,7 +59,7 @@ app.post('/api/add', (req, res)=> {
 app.delete("/api/clear", function(req,res) {
         
     reservation = [];
-    waitingList = [];
+    resvList = [];
 })
 
 app.listen(PORT, () => {
