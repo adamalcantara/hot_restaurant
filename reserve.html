@@ -103,12 +103,12 @@
       // depending on if a tables is available or not.
   
       $.post("/api/tables", newReservation,
-        function(data) {
-  
+        function(isItFull) {
+          console.log(isItFull);
           // If a table is available... tell user they are booked.
-          if (data) {
+          if (isItFull) {
             alert("Yay! You are officially booked!");
-            console.log(data);
+            console.log(isItFull);
           }
 
           // If a table is available... tell user they on the waiting list.

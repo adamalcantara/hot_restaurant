@@ -9,7 +9,7 @@ app.use(express.json());
 
 const tables = [];
 
-const resvList = [];
+const resv = [];
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
@@ -45,12 +45,12 @@ app.post('/api/tables', (req, res)=> {
     console.log(req.body);
     newReserv.routeName = newReserv.customerName.replace(/ /g, "").toLowerCase();
     //console.log(newReserv);
-    var isItFull = false;
+    var isItFull = true;
     if(tables.length < 5) {
         tables.push(newReserv);
     } else {
         resv.push(newReserv);
-        isItFull = true;
+        isItFull = false;
     }
 
     res.json(newReserv);
