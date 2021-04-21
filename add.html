@@ -83,15 +83,16 @@
         $("#submitBtn").on("click", function (event) {
             event.preventDefault();
             var newReserve = {
-                name: $("#name").value().trim(),
+                name: $("#name").val().trim(),
                 phoneNum: $("#phoneNum").val().trim(),
-                email: $("#email").value().trim(),
-                uniqueId: $("#uniqueId").value().trim()
+                email: $("#email").val().trim(),
+                uniqueId: $("#uniqueId").val().trim()
             }
 
             //console.log(newReserve);
 
-            $.post("api/tables", newReserve).then(function (data) {
+            $.post("api/reservation", newReserve)
+            .then(function (data) {
                 if (data === "tables") { alert("Reservation added!"); }
                 else {
                     alert("You're on the waitlist!");
